@@ -13,4 +13,4 @@ php artisan make:migration create_boards_table
   $table->text('description');
 php artisan make:migration create_chats_table
   $table->integer('user_id');
-  $table->text('comment')
+  $table->text('comment');

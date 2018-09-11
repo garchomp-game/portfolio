@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('root_path');
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('board', 'BoardController');
+Route::resource('chat', 'ChatController');
+Route::prefix('{user}')->group(function () {
+  Route::resource('user', 'UserController');
+  Route::resource('status_sheet', 'StatusShetController');
+});
