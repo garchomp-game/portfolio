@@ -1,0 +1,16 @@
+php artisan make:migration create_status_sheets_table
+  $table->integer('str');
+  $table->integer('con');
+  $table->integer('pow');
+  $table->integer('dex');
+  $table->integer('app');
+  $table->integer('siz');
+  $table->integer('int');
+  $table->integer('edu');
+  $table->integer('money');
+php artisan make:migration create_boards_table
+  $table->string('title');
+  $table->text('description');
+php artisan make:migration create_chats_table
+  $table->integer('user_id');
+  $table->text('comment')

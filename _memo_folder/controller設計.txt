@@ -1,0 +1,31 @@
+トップページ
+<?php
+Home
+use App\Board;
+  index()
+    Board::all() // 掲示板一覧をトップで呼び出すため
+Board
+use App\Http\Requests\ChatRequest;
+use App\Chat;
+  __construct()
+    // ログインチェック
+  index()
+    Chat::all() // ログがあれば呼び出して表示する
+  store(ChatRequest $request)
+    Chat::create($request->all())
+    return Chat::find(\DB::getPdo()->lastInsertId())->toArray()
+    // 非同期通信するためjsonで返す。
+  edit($id, ChatRequest $request)
+    Chat::find($id)->update($request->all())
+    return Chat::find(\DB::getPdo()->lastInsertId())->toArray()
+    // 同上
+
+User
+// Route::prefix('{user}')->group(function () {})
+use App\User;
+  index(User $user)
+    return view('user.index', compact('user'))
+    // ビューで@authで分岐。条件によって編集ボタンを出すか出さないかを決める。
+
+StatusSheet
+// Route::prefix('{user}')->group(function () {})
