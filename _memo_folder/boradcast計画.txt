@@ -1,0 +1,27 @@
+ブロードキャストのストーリー
+
+フォームからメッセージとユーザーidが来る。
+フォームにインサートする。
+イベント発火の再送信するのは
+event(ChatEvent($id))
+broadcastOnは
+public function broadcastOn()
+{
+  return new PresenceChannel('board.'.$this->id);
+}
+
+
+js
+Echo.join('chat.' + roomId)
+    .listen('OrderShipped', (e) => {
+        console.log(e.order.name);
+    })
+    .here((users) => {
+        //
+    })
+    .joining((user) => {
+        console.log(user.name);
+    })
+    .leaving((user) => {
+        console.log(user.name);
+    });

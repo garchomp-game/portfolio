@@ -15,9 +15,9 @@ use App\Chat;
     Chat::create($request->all())
     return Chat::find(\DB::getPdo()->lastInsertId())->toArray()
     // 非同期通信するためjsonで返す。
-  edit($id, ChatRequest $request)
+  update($id, ChatRequest $request)
     Chat::find($id)->update($request->all())
-    return Chat::find(\DB::getPdo()->lastInsertId())->toArray()
+    return Chat::find(\DB::getPdo()->lastInsertId())->toArray();
     // 同上
 
 User
